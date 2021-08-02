@@ -4,6 +4,14 @@
 #include <sys/wait.h>
 #include <unistd.h>
 
+void doSomeWork(void){
+	const int NUM_TIMES = 5;
+	for(int i = 0; i < NUM_TIMES; i++){
+		sleep(rand()%4);
+		printf("Done pass %d\n", i);
+	}
+}
+
 int main(int argc, char *argv[]){
 	printf("I am: %d\n", (int) getpid());
 
@@ -15,7 +23,7 @@ int main(int argc, char *argv[]){
 	}
 	if(pid==0){
 		 printf("I'am the child with pid %d \n", (int) getpid());
-		sleep(5);
+		 doSomeWork();
 		 exit(0);
 	}
 	
