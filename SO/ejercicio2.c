@@ -1,19 +1,29 @@
-#include <stdio.h>
 #include <unistd.h>
-#include <sys/wait.h>
-#include <sys/types.h>
-#include <stdlib.h>
+#include <stdio.h>
 
-int main(int argc, char *argv[])
-{
+int var = 22;
 
-	for (int i = 1; i <= 4; i++) {
-		fork();
-		printf("%d: My PID = %d\n", i, (int) getpid());
+int main(void){
+	pid_t pidC;
+
+	printf("** proc. PID = %d comienza ** \n", getpid());
+	
+	pidC = fork();
+
+	printf("proc. PID = %d, pidC = %d ejecutandose \n", getpid(), pidC);
+
+	if(pidC > 0){
+		var = 44;
+	}else if(pidC ==0){
+			var = 33;
+	}else{
+
 	}
 
-	sleep(1);
-	printf("--> My PID = %d\n", (int) getpid());
+	while(1){
+			sleep(2);
+			printf("proc. PID = %d, var = %d ejecutandose \n", getpid(), var);
+	}
 
 	return 0;
 }
