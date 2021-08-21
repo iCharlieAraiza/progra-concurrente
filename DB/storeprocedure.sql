@@ -61,5 +61,3 @@ DELIMITER ;
 CALL alumno_informacion(2);
 CALL lista_asignaturas(2);
 
-CALL alumno_informacion_lista_asignaturas(3,1);
-
