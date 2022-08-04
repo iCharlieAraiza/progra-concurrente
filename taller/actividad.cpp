@@ -6,8 +6,11 @@ int algo(int n);
 
 int main()
 {
-    int num = algo(3);
-    cout<< num;
+    int num = 0;
+    cout << "Numero: ";
+    cin >> num;
+
+    cout<< algo(num);
 
     return 0;
 }
