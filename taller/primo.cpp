@@ -40,6 +40,7 @@ int main()
         MIENTRAS i < numero HACER
             SI numero % 1 == 0 ENTONCES
                 RETORNAR falso
+            FIN SI
             i = i + 1
         FIN MIENTRAS
         RETORNAR verdadero
