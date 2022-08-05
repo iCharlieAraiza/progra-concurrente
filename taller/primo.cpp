@@ -34,13 +34,16 @@ int main()
     BOOLEANO primo (ENTERO numero)
         SI numero <= 1 
             RETORNAR falso
+        FIN SI
         DEFINIR i como ENTERO
         i = 2
         MIENTRAS i < numero HACER
             SI numero % 1 == 0 ENTONCES
                 RETORNAR falso
             i = i + 1
+        FIN MIENTRAS
         RETORNAR verdadero
+    FIN función
 */
 
 bool primo(int n) {
