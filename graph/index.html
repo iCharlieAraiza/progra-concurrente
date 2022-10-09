@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: #f0f0f0;
+            font-family: "open sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .block {
+            padding: 1.5rem;
+            background-color: white;
+            min-width: 350px;
+            box-shadow: 1px 2px 18px grey;
+            border-radius: 4px;
+            margin-bottom: 1rem;
+            margin-top: 1rem;
+        }
+
+        .long {
+            flex-grow: 100;
+        }        
+
+        .medium {
+            flex-grow: 50;
+        }
+
+        .small {
+            width: 19%;
+        }
+
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 2rem;
+        }
+
+        h3 {
+            margin: 0;
+            text-align: center;
+            padding-bottom: 1rem;
+            font-size: 16px;
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="block medium">
+                <h3>Porcentaje de personas en pobreza por estado (2018)</h3>
+                <div id="geochart-colors"></div>
+            </div>
+            <div class="block medium">
+                <h3>Los 5 estados con mayor número de personas en pobreza</h3>
+                <div id="chart_div"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="block small">
+                <h3>Tipo de pobreza en México (2018)</h3>
+                <div id="piechart_3d"></div>
+            </div>
+            <div class="block long">
+                <h3>Evolución de la pobreza (2008 - 2018)</h3>
+                <div id="chart_evolution"></div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <div id="chart_div"></div>
+    <script type='text/javascript'>
+
+        google.charts.load('upcoming', {
+            'packages': ['geochart']
+        });
+        google.charts.setOnLoadCallback(drawRegionsMap);
+
+        function drawRegionsMap() {
+            var data = google.visualization.arrayToDataTable([
+                ['State', 'Accent'],
+                ['Baja California', 23.3],
+                ['Sonora', '28.2'],
+                ['Chihuahua', '26.3'],
+                ['Coahuila', '22.5'],
+                ['Nuevo León', '14.5'],
+                ['Tamaulipas', '35.1'],
+                ['Sinaloa', '30.9'],
+                ['Nayarit', '34.8'],
+                ['Durango', '37.3'],
+                ['Zacatecas', '46.8'],
+                ['Jalisco', '28.4'],
+                ['Colima', '30.9'],
+                ['Tlaxcala', '48.4'],
+                ['Aguascalientes', '26.2'],
+                ['Zacatecas', '46.8'],
+                ['San Luis Potosí', '43.4'],
+                ['Puebla', '58.9'],
+                ['Guanajuato', '43.4'],
+                ['Querétaro', '27.6'],
+                ['Hidalgo', '43.8'],
+                ['Morelos', '50.8'],
+                ['Estado de México', 42.7],
+                ['Distrito Federal', 30.6],
+                ['Baja California Sur', '18.1'],
+                ['Michoacán', '46.0'],
+                ['Guerrero', '66.5'],
+                ['Oaxaca', '66.4'],
+                ['Veracruz', '61.8'],
+                ['Tabasco', '53.6'],
+                ['Campeche', '46.2'],
+                ['Chiapas', '76.4'],
+                ['Quintana Roo', '27.6'],
+                ['Yucatán', '40.8']
+            ]);
+
+            var options = {
+                region: 'MX', // Mexico
+                resolution: 'provinces',
+                colorAxis: {
+                    colors: ['#ea5050']
+                    //     	minValue=100,
+                    //     maxValue=400,
+                },
+                backgroundColor: '#81d4fa',
+                datalessRegionColor: '#eeeeee',
+                defaultColor: '#f5f5f5',
+            };
+
+            var chart = new google.visualization.GeoChart(document.getElementById('geochart-colors'));
+            chart.draw(data, options);
+        };
+    </script>
+
+    <script type='text/javascript'>
+        google.charts.load('current', { packages: ['corechart', 'bar'] });
+        google.charts.setOnLoadCallback(drawMultSeries);
+
+        function drawMultSeries() {
+            var data = google.visualization.arrayToDataTable([
+                ['Estado', '2018', '2012', '2008'],
+                ['Estado de México', 7546.542, 7328.735, 6578.2],
+                ['Veracruz', 5088.563, 4141.759, 3878.997],
+                ['Chiapas', 4174.596, 3782.315, 3682.298],
+                ['Puebla', 3878.116, 3763.65, 3705.6],
+                ['Oaxaca', 2714.697, 2434.595, 2354.4]
+            ]);
+
+            var options = {
+                title: 'Los 5 estados con más personas en pobreza',
+                chartArea: { width: '50%' },
+                hAxis: {
+                    title: 'Población por miles',
+                    minValue: 0
+                },
+                vAxis: {
+                    title: 'Estado'
+                }
+            };
+
+            var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+            chart.draw(data, options);
+        }
+    </script>
+
+    <script type="text/javascript">
+        google.charts.load("current", { packages: ["corechart"] });
+        google.charts.setOnLoadCallback(drawChart);
+        function drawChart() {
+            var data = google.visualization.arrayToDataTable([
+                ['Tipo', 'Porcentaje'],
+                ['Moderqada', 34.9],
+                ['Extrema', 7],
+            ]);
+
+            var options = {
+                title: 'Tipo de pobreza',
+                is3D: true,
+            };
+
+            var chart = new google.visualization.PieChart(document.getElementById('piechart_3d'));
+            chart.draw(data, options);
+        }
+    </script>
+    <script>
+        google.charts.load('current', {packages: ['corechart', 'line']});
+google.charts.setOnLoadCallback(drawLineColors);
+
+function drawLineColors() {
+      var data = new google.visualization.DataTable();
+      data.addColumn('string', 'año');
+      data.addColumn('number', 'Pobreza moderada');
+      data.addColumn('number', 'Pobreza extrema');
+
+      data.addRows([
+        ['2008', 37161.3, 12328],    ['2010', 39848.3, 12964],   ['2012', 41821, 11529],  ['2014', 43899, 11442],   ['16', 44042, 9375.6], ['18', 43115.3, 9310.2], 
+      ]);
+
+      var options = {
+        hAxis: {
+          title: 'Año'
+        },
+        vAxis: {
+          title: 'Población (miles de personas)'
+        },
+        colors: ['#a52714', '#097138']
+      };
+
+      var chart = new google.visualization.LineChart(document.getElementById('chart_evolution'));
+      chart.draw(data, options);
+    }
+    </script>
+</body>
+
+</html>
