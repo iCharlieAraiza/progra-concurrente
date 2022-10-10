@@ -27,9 +27,17 @@
             margin-top: 1rem;
         }
 
+        .right {
+            text-align: right;
+        }
+
+        .full {
+            width: 100%;
+        }
+
         .long {
             flex-grow: 100;
-        }        
+        }
 
         .medium {
             flex-grow: 50;
@@ -46,6 +54,15 @@
             gap: 2rem;
         }
 
+        table {
+            border-collapse: collapse;
+            margin: 25px 0;
+            font-size: 0.9em;
+            font-family: sans-serif;
+            min-width: 400px;
+            width: 100%;
+        }
+
         h3 {
             margin: 0;
             text-align: center;
@@ -53,18 +70,43 @@
             font-size: 16px;
             text-transform: uppercase;
         }
+
+        h1 {
+            text-align: center;
+            margin: 0;
+            text-transform: uppercase;
+            font-size: 22px;
+        }
+
+        thead tr {
+            background-color: #f8f9fa !important;
+        }
+
+        tbody td {
+            padding: 8px 4px;
+        }
+
+        input {
+            margin-left: 10px;
+        }
     </style>
 </head>
 
 <body>
     <div class="container">
         <div class="row">
+            <div class="block full">
+                <h1>Panel de gráficos</h1>
+            </div>
+        </div>
+
+        <div class="row">
             <div class="block medium">
                 <h3>Porcentaje de personas en pobreza por estado (2018)</h3>
                 <div id="geochart-colors"></div>
             </div>
             <div class="block medium">
-                <h3>Los 5 estados con mayor número de personas en pobreza</h3>
+                <h3>Los 10 estados con mayor número de personas en pobreza</h3>
                 <div id="chart_div"></div>
             </div>
         </div>
@@ -76,6 +118,720 @@
             <div class="block long">
                 <h3>Evolución de la pobreza (2008 - 2018)</h3>
                 <div id="chart_evolution"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="block full">
+                <h3>Indicadores de carencia social</h3>
+                <div id="chart_change_div"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="block full">
+                <h3>Porcentaje de ingresos</h3>
+                <div id="chart_income_div"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="block full">
+                <h3>Tabla de datos</h3>
+                <div class="row">
+                    <div class="dataTables_length" id="example_length"><label>Show <select name="example_length"
+                                aria-controls="example" class="">
+                                <option value="10">10</option>
+                                <option value="25">25</option>
+                                <option value="50">50</option>
+                                <option value="100">100</option>
+                            </select> entries</label></div>
+                    <div id="example_filter" class="dataTables_filter"><label>Search:<input type="search" class=""
+                                placeholder="" aria-controls="example"></label></div>
+                </div>
+                <table class="table table-bordered table-hover table-condensed">
+                    <thead>
+                        <tr>
+                            <th title="Field #1"></th>
+                            <th title="Field #2">2008</th>
+                            <th title="Field #3">2010</th>
+                            <th title="Field #4">2012</th>
+                            <th title="Field #5">2014</th>
+                            <th title="Field #6">2016</th>
+                            <th title="Field #7">2018</th>
+                            <th title="Field #8"></th>
+                            <th title="Field #9">2008</th>
+                            <th title="Field #10">2010</th>
+                            <th title="Field #11">2012</th>
+                            <th title="Field #12">2014</th>
+                            <th title="Field #13">2016</th>
+                            <th title="Field #14">2018</th>
+                            <th title="Field #15"></th>
+                            <th title="Field #16">Porcentual<br />(2018-2008)</th>
+                            <th title="Field #17"></th>
+                            <th title="Field #18">Absoluto (MDP)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Aguascalientes</td>
+                            <td align="right">37.6</td>
+                            <td align="right">38.1</td>
+                            <td align="right">37.8</td>
+                            <td align="right">34.8</td>
+                            <td align="right">28.2</td>
+                            <td align="right">26.2</td>
+                            <td> </td>
+                            <td>435.3</td>
+                            <td>456.8</td>
+                            <td>467.6</td>
+                            <td>442.9</td>
+                            <td>369.7</td>
+                            <td>351.5</td>
+                            <td> </td>
+                            <td>-19.2%</td>
+                            <td> </td>
+                            <td>-83.8</td>
+                        </tr>
+                        <tr>
+                            <td>Baja California</td>
+                            <td align="right">26.0</td>
+                            <td align="right">31.5</td>
+                            <td align="right">30.2</td>
+                            <td align="right">28.6</td>
+                            <td align="right">22.2</td>
+                            <td align="right">23.3</td>
+                            <td> </td>
+                            <td>809.7</td>
+                            <td>1,019.8</td>
+                            <td>1,010.1</td>
+                            <td>984.9</td>
+                            <td>789.1</td>
+                            <td>848.4</td>
+                            <td> </td>
+                            <td>4.8%</td>
+                            <td> </td>
+                            <td>38.7</td>
+                        </tr>
+                        <tr>
+                            <td>Baja California Sur</td>
+                            <td align="right">21.4</td>
+                            <td align="right">31.0</td>
+                            <td align="right">30.1</td>
+                            <td align="right">30.3</td>
+                            <td align="right">22.1</td>
+                            <td align="right">18.1</td>
+                            <td> </td>
+                            <td>130.5</td>
+                            <td>203.0</td>
+                            <td>211.3</td>
+                            <td>226.2</td>
+                            <td>175.6</td>
+                            <td>151.7</td>
+                            <td> </td>
+                            <td>16.2%</td>
+                            <td> </td>
+                            <td>21.2</td>
+                        </tr>
+                        <tr>
+                            <td>Campeche</td>
+                            <td align="right">45.9</td>
+                            <td align="right">50.5</td>
+                            <td align="right">44.7</td>
+                            <td align="right">43.6</td>
+                            <td align="right">43.8</td>
+                            <td align="right">46.2</td>
+                            <td> </td>
+                            <td>373.1</td>
+                            <td>425.3</td>
+                            <td>387.9</td>
+                            <td>391.0</td>
+                            <td>405.0</td>
+                            <td>440.4</td>
+                            <td> </td>
+                            <td>18.1%</td>
+                            <td> </td>
+                            <td>67.4</td>
+                        </tr>
+                        <tr>
+                            <td>Coahuila</td>
+                            <td align="right">32.7</td>
+                            <td align="right">27.8</td>
+                            <td align="right">27.9</td>
+                            <td align="right">30.2</td>
+                            <td align="right">24.8</td>
+                            <td align="right">22.5</td>
+                            <td> </td>
+                            <td>885.8</td>
+                            <td>775.9</td>
+                            <td>799.3</td>
+                            <td>885.8</td>
+                            <td>745.9</td>
+                            <td>691.1</td>
+                            <td> </td>
+                            <td>-22.0%</td>
+                            <td> </td>
+                            <td>-194.6</td>
+                        </tr>
+                        <tr>
+                            <td>Colima</td>
+                            <td align="right">27.4</td>
+                            <td align="right">34.7</td>
+                            <td align="right">34.4</td>
+                            <td align="right">34.3</td>
+                            <td align="right">33.6</td>
+                            <td align="right">30.9</td>
+                            <td> </td>
+                            <td>173.4</td>
+                            <td>230.3</td>
+                            <td>237.2</td>
+                            <td>244.9</td>
+                            <td>248.7</td>
+                            <td>235.6</td>
+                            <td> </td>
+                            <td>35.9%</td>
+                            <td> </td>
+                            <td>62.2</td>
+                        </tr>
+                        <tr>
+                            <td>Chiapas</td>
+                            <td align="right">77.0</td>
+                            <td align="right">78.5</td>
+                            <td align="right">74.7</td>
+                            <td align="right">76.2</td>
+                            <td align="right">77.1</td>
+                            <td align="right">76.4</td>
+                            <td> </td>
+                            <td>3,682.3</td>
+                            <td>3,866.3</td>
+                            <td>3,782.3</td>
+                            <td>3,961.0</td>
+                            <td>4,114.0</td>
+                            <td>4,174.6</td>
+                            <td> </td>
+                            <td>13.4%</td>
+                            <td> </td>
+                            <td>492.3</td>
+                        </tr>
+                        <tr>
+                            <td>Chihuahua</td>
+                            <td align="right">32.1</td>
+                            <td align="right">38.8</td>
+                            <td align="right">35.3</td>
+                            <td align="right">34.4</td>
+                            <td align="right">30.6</td>
+                            <td align="right">26.3</td>
+                            <td> </td>
+                            <td>1,105.1</td>
+                            <td>1,371.6</td>
+                            <td>1,272.7</td>
+                            <td>1,265.5</td>
+                            <td>1,150.0</td>
+                            <td>1,005.7</td>
+                            <td> </td>
+                            <td>-9.0%</td>
+                            <td> </td>
+                            <td>-99.4</td>
+                        </tr>
+                        <tr>
+                            <td>Ciudad de México</td>
+                            <td align="right">27.6</td>
+                            <td align="right">28.5</td>
+                            <td align="right">28.9</td>
+                            <td align="right">28.4</td>
+                            <td align="right">27.6</td>
+                            <td align="right">30.6</td>
+                            <td> </td>
+                            <td>2,465.7</td>
+                            <td>2,537.2</td>
+                            <td>2,565.3</td>
+                            <td>2,502.5</td>
+                            <td>2,434.4</td>
+                            <td>2,682.7</td>
+                            <td> </td>
+                            <td>8.8%</td>
+                            <td> </td>
+                            <td>217.1</td>
+                        </tr>
+                        <tr>
+                            <td>Durango</td>
+                            <td align="right">48.4</td>
+                            <td align="right">51.6</td>
+                            <td align="right">50.1</td>
+                            <td align="right">43.5</td>
+                            <td align="right">36.0</td>
+                            <td align="right">37.3</td>
+                            <td> </td>
+                            <td>791.4</td>
+                            <td>864.2</td>
+                            <td>858.7</td>
+                            <td>761.2</td>
+                            <td>643.3</td>
+                            <td>680.0</td>
+                            <td> </td>
+                            <td>-14.1%</td>
+                            <td> </td>
+                            <td>-111.4</td>
+                        </tr>
+                        <tr>
+                            <td>Guanajuato</td>
+                            <td align="right">44.1</td>
+                            <td align="right">48.5</td>
+                            <td align="right">44.5</td>
+                            <td align="right">46.6</td>
+                            <td align="right">42.4</td>
+                            <td align="right">43.4</td>
+                            <td> </td>
+                            <td>2,403.6</td>
+                            <td>2,703.7</td>
+                            <td>2,525.8</td>
+                            <td>2,683.3</td>
+                            <td>2,489.7</td>
+                            <td>2,587.8</td>
+                            <td> </td>
+                            <td>7.7%</td>
+                            <td> </td>
+                            <td>184.3</td>
+                        </tr>
+                        <tr>
+                            <td>Guerrero</td>
+                            <td align="right">68.4</td>
+                            <td align="right">67.6</td>
+                            <td align="right">69.7</td>
+                            <td align="right">65.2</td>
+                            <td align="right">64.4</td>
+                            <td align="right">66.5</td>
+                            <td> </td>
+                            <td>2,319.6</td>
+                            <td>2,330.0</td>
+                            <td>2,442.9</td>
+                            <td>2,315.4</td>
+                            <td>2,314.7</td>
+                            <td>2,412.2</td>
+                            <td> </td>
+                            <td>4.0%</td>
+                            <td> </td>
+                            <td>92.6</td>
+                        </tr>
+                        <tr>
+                            <td>Hidalgo</td>
+                            <td align="right">55.2</td>
+                            <td align="right">54.7</td>
+                            <td align="right">52.8</td>
+                            <td align="right">54.3</td>
+                            <td align="right">50.6</td>
+                            <td align="right">43.8</td>
+                            <td> </td>
+                            <td>1,443.6</td>
+                            <td>1,477.1</td>
+                            <td>1,465.9</td>
+                            <td>1,547.8</td>
+                            <td>1,478.8</td>
+                            <td>1,311.1</td>
+                            <td> </td>
+                            <td>-9.2%</td>
+                            <td> </td>
+                            <td>-132.5</td>
+                        </tr>
+                        <tr>
+                            <td>Jalisco</td>
+                            <td align="right">36.7</td>
+                            <td align="right">37.0</td>
+                            <td align="right">39.8</td>
+                            <td align="right">35.4</td>
+                            <td align="right">31.8</td>
+                            <td align="right">28.4</td>
+                            <td> </td>
+                            <td>2,657.1</td>
+                            <td>2,766.7</td>
+                            <td>3,051.0</td>
+                            <td>2,780.2</td>
+                            <td>2,560.6</td>
+                            <td>2,337.6</td>
+                            <td> </td>
+                            <td>-12.0%</td>
+                            <td> </td>
+                            <td>-319.5</td>
+                        </tr>
+                        <tr>
+                            <td>México</td>
+                            <td align="right">43.6</td>
+                            <td align="right">42.9</td>
+                            <td align="right">45.3</td>
+                            <td align="right">49.6</td>
+                            <td align="right">47.9</td>
+                            <td align="right">42.7</td>
+                            <td> </td>
+                            <td>6,578.2</td>
+                            <td>6,712.1</td>
+                            <td>7,328.7</td>
+                            <td>8,269.9</td>
+                            <td>8,230.2</td>
+                            <td>7,546.5</td>
+                            <td> </td>
+                            <td>14.7%</td>
+                            <td> </td>
+                            <td>968.4</td>
+                        </tr>
+                        <tr>
+                            <td>Michoacán</td>
+                            <td align="right">55.5</td>
+                            <td align="right">54.7</td>
+                            <td align="right">54.4</td>
+                            <td align="right">59.2</td>
+                            <td align="right">55.3</td>
+                            <td align="right">46.0</td>
+                            <td> </td>
+                            <td>2,411.2</td>
+                            <td>2,424.8</td>
+                            <td>2,447.7</td>
+                            <td>2,708.6</td>
+                            <td>2,565.9</td>
+                            <td>2,161.9</td>
+                            <td> </td>
+                            <td>-10.3%</td>
+                            <td> </td>
+                            <td>-249.3</td>
+                        </tr>
+                        <tr>
+                            <td>Morelos</td>
+                            <td align="right">48.8</td>
+                            <td align="right">43.2</td>
+                            <td align="right">45.5</td>
+                            <td align="right">52.3</td>
+                            <td align="right">49.5</td>
+                            <td align="right">50.8</td>
+                            <td> </td>
+                            <td>857.6</td>
+                            <td>782.2</td>
+                            <td>843.5</td>
+                            <td>993.7</td>
+                            <td>965.9</td>
+                            <td>1,013.3</td>
+                            <td> </td>
+                            <td>18.2%</td>
+                            <td> </td>
+                            <td>155.7</td>
+                        </tr>
+                        <tr>
+                            <td>Nayarit</td>
+                            <td align="right">41.7</td>
+                            <td align="right">41.4</td>
+                            <td align="right">47.6</td>
+                            <td align="right">40.5</td>
+                            <td align="right">37.5</td>
+                            <td align="right">34.8</td>
+                            <td> </td>
+                            <td>444.1</td>
+                            <td>461.2</td>
+                            <td>553.5</td>
+                            <td>488.8</td>
+                            <td>470.1</td>
+                            <td>451.0</td>
+                            <td> </td>
+                            <td>1.5%</td>
+                            <td> </td>
+                            <td>6.8</td>
+                        </tr>
+                        <tr>
+                            <td>Nuevo León</td>
+                            <td align="right">21.4</td>
+                            <td align="right">21.0</td>
+                            <td align="right">23.2</td>
+                            <td align="right">20.4</td>
+                            <td align="right">14.2</td>
+                            <td align="right">14.5</td>
+                            <td> </td>
+                            <td>976.3</td>
+                            <td>994.4</td>
+                            <td>1,132.9</td>
+                            <td>1,022.7</td>
+                            <td>737.8</td>
+                            <td>773.0</td>
+                            <td> </td>
+                            <td>-20.8%</td>
+                            <td> </td>
+                            <td>-203.2</td>
+                        </tr>
+                        <tr>
+                            <td>Oaxaca</td>
+                            <td align="right">61.8</td>
+                            <td align="right">67.0</td>
+                            <td align="right">61.9</td>
+                            <td align="right">66.8</td>
+                            <td align="right">70.4</td>
+                            <td align="right">66.4</td>
+                            <td> </td>
+                            <td>2,354.4</td>
+                            <td>2,596.3</td>
+                            <td>2,434.6</td>
+                            <td>2,662.7</td>
+                            <td>2,847.3</td>
+                            <td>2,714.7</td>
+                            <td> </td>
+                            <td>15.3%</td>
+                            <td> </td>
+                            <td>360.2</td>
+                        </tr>
+                        <tr>
+                            <td>Puebla</td>
+                            <td align="right">64.6</td>
+                            <td align="right">61.5</td>
+                            <td align="right">64.5</td>
+                            <td align="right">64.5</td>
+                            <td align="right">59.4</td>
+                            <td align="right">58.9</td>
+                            <td> </td>
+                            <td>3,705.6</td>
+                            <td>3,616.3</td>
+                            <td>3,878.1</td>
+                            <td>3,958.8</td>
+                            <td>3,728.2</td>
+                            <td>3,763.7</td>
+                            <td> </td>
+                            <td>1.6%</td>
+                            <td> </td>
+                            <td>58.0</td>
+                        </tr>
+                        <tr>
+                            <td>Querétaro</td>
+                            <td align="right">35.2</td>
+                            <td align="right">41.4</td>
+                            <td align="right">36.9</td>
+                            <td align="right">34.2</td>
+                            <td align="right">31.1</td>
+                            <td align="right">27.6</td>
+                            <td> </td>
+                            <td>629.1</td>
+                            <td>767.0</td>
+                            <td>707.4</td>
+                            <td>675.7</td>
+                            <td>635.7</td>
+                            <td>579.2</td>
+                            <td> </td>
+                            <td>-7.9%</td>
+                            <td> </td>
+                            <td>-49.9</td>
+                        </tr>
+                        <tr>
+                            <td>Quintana Roo</td>
+                            <td align="right">33.7</td>
+                            <td align="right">34.6</td>
+                            <td align="right">38.8</td>
+                            <td align="right">35.9</td>
+                            <td align="right">28.8</td>
+                            <td align="right">27.6</td>
+                            <td> </td>
+                            <td>428.1</td>
+                            <td>471.7</td>
+                            <td>563.3</td>
+                            <td>553.0</td>
+                            <td>471.0</td>
+                            <td>474.8</td>
+                            <td> </td>
+                            <td>10.9%</td>
+                            <td> </td>
+                            <td>46.7</td>
+                        </tr>
+                        <tr>
+                            <td>San Luis Potosí</td>
+                            <td align="right">50.9</td>
+                            <td align="right">52.4</td>
+                            <td align="right">50.5</td>
+                            <td align="right">49.1</td>
+                            <td align="right">45.5</td>
+                            <td align="right">43.4</td>
+                            <td> </td>
+                            <td>1,304.4</td>
+                            <td>1,375.3</td>
+                            <td>1,354.2</td>
+                            <td>1,338.1</td>
+                            <td>1,267.7</td>
+                            <td>1,229.0</td>
+                            <td> </td>
+                            <td>-5.8%</td>
+                            <td> </td>
+                            <td>-75.4</td>
+                        </tr>
+                        <tr>
+                            <td>Sinaloa</td>
+                            <td align="right">32.4</td>
+                            <td align="right">36.7</td>
+                            <td align="right">36.3</td>
+                            <td align="right">39.4</td>
+                            <td align="right">30.8</td>
+                            <td align="right">30.9</td>
+                            <td> </td>
+                            <td>905.6</td>
+                            <td>1,048.6</td>
+                            <td>1,055.6</td>
+                            <td>1,167.1</td>
+                            <td>929.7</td>
+                            <td>946.9</td>
+                            <td> </td>
+                            <td>4.6%</td>
+                            <td> </td>
+                            <td>41.2</td>
+                        </tr>
+                        <tr>
+                            <td>Sonora</td>
+                            <td align="right">27.1</td>
+                            <td align="right">33.1</td>
+                            <td align="right">29.1</td>
+                            <td align="right">29.4</td>
+                            <td align="right">27.9</td>
+                            <td align="right">28.2</td>
+                            <td> </td>
+                            <td>716.9</td>
+                            <td>905.2</td>
+                            <td>821.3</td>
+                            <td>852.1</td>
+                            <td>831.4</td>
+                            <td>863.0</td>
+                            <td> </td>
+                            <td>20.4%</td>
+                            <td> </td>
+                            <td>146.1</td>
+                        </tr>
+                        <tr>
+                            <td>Tabasco</td>
+                            <td align="right">53.8</td>
+                            <td align="right">57.1</td>
+                            <td align="right">49.7</td>
+                            <td align="right">49.6</td>
+                            <td align="right">50.9</td>
+                            <td align="right">53.6</td>
+                            <td> </td>
+                            <td>1,188.0</td>
+                            <td>1,291.6</td>
+                            <td>1,149.4</td>
+                            <td>1,169.8</td>
+                            <td>1,228.1</td>
+                            <td>1,320.2</td>
+                            <td> </td>
+                            <td>11.1%</td>
+                            <td> </td>
+                            <td>132.2</td>
+                        </tr>
+                        <tr>
+                            <td>Tamaulipas</td>
+                            <td align="right">33.8</td>
+                            <td align="right">39.0</td>
+                            <td align="right">38.4</td>
+                            <td align="right">37.9</td>
+                            <td align="right">32.2</td>
+                            <td align="right">35.1</td>
+                            <td> </td>
+                            <td>1,097.7</td>
+                            <td>1,301.7</td>
+                            <td>1,315.6</td>
+                            <td>1,330.7</td>
+                            <td>1,156.2</td>
+                            <td>1,287.9</td>
+                            <td> </td>
+                            <td>17.3%</td>
+                            <td> </td>
+                            <td>190.2</td>
+                        </tr>
+                        <tr>
+                            <td>Tlaxcala</td>
+                            <td align="right">59.6</td>
+                            <td align="right">60.3</td>
+                            <td align="right">57.9</td>
+                            <td align="right">58.9</td>
+                            <td align="right">53.9</td>
+                            <td align="right">48.4</td>
+                            <td> </td>
+                            <td>687.7</td>
+                            <td>719.0</td>
+                            <td>711.9</td>
+                            <td>745.1</td>
+                            <td>701.8</td>
+                            <td>645.8</td>
+                            <td> </td>
+                            <td>-6.1%</td>
+                            <td> </td>
+                            <td>-42.0</td>
+                        </tr>
+                        <tr>
+                            <td>Veracruz</td>
+                            <td align="right">51.2</td>
+                            <td align="right">57.6</td>
+                            <td align="right">52.6</td>
+                            <td align="right">58.0</td>
+                            <td align="right">62.2</td>
+                            <td align="right">61.8</td>
+                            <td> </td>
+                            <td>3,879.0</td>
+                            <td>4,448.0</td>
+                            <td>4,141.8</td>
+                            <td>4,634.2</td>
+                            <td>5,049.5</td>
+                            <td>5,088.6</td>
+                            <td> </td>
+                            <td>31.2%</td>
+                            <td> </td>
+                            <td>1,209.6</td>
+                        </tr>
+                        <tr>
+                            <td>Yucatán</td>
+                            <td align="right">47.0</td>
+                            <td align="right">48.3</td>
+                            <td align="right">48.9</td>
+                            <td align="right">45.9</td>
+                            <td align="right">41.9</td>
+                            <td align="right">40.8</td>
+                            <td> </td>
+                            <td>907.0</td>
+                            <td>958.5</td>
+                            <td>996.9</td>
+                            <td>957.9</td>
+                            <td>901.9</td>
+                            <td>900.5</td>
+                            <td> </td>
+                            <td>-0.7%</td>
+                            <td> </td>
+                            <td>-6.5</td>
+                        </tr>
+                        <tr>
+                            <td>Zacatecas</td>
+                            <td align="right">50.1</td>
+                            <td align="right">60.2</td>
+                            <td align="right">54.2</td>
+                            <td align="right">52.3</td>
+                            <td align="right">49.0</td>
+                            <td align="right">46.8</td>
+                            <td> </td>
+                            <td>742.2</td>
+                            <td>911.5</td>
+                            <td>835.5</td>
+                            <td>819.8</td>
+                            <td>780.3</td>
+                            <td>755.2</td>
+                            <td> </td>
+                            <td>1.7%</td>
+                            <td> </td>
+                            <td>13.0</td>
+                        </tr>
+                        <tr>
+                            <td>Estados Unidos Mexicanos</td>
+                            <td align="right">44.4</td>
+                            <td align="right">46.1</td>
+                            <td align="right">45.5</td>
+                            <td align="right">46.2</td>
+                            <td align="right">43.6</td>
+                            <td align="right">41.9</td>
+                            <td> </td>
+                            <td>49,489.5</td>
+                            <td>52,813.0</td>
+                            <td>53,349.9</td>
+                            <td>55,341.6</td>
+                            <td>53,418.2</td>
+                            <td>52,425.9</td>
+                            <td> </td>
+                            <td>5.9%</td>
+                            <td> </td>
+                            <td>2,936.4</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
@@ -91,7 +847,7 @@
 
         function drawRegionsMap() {
             var data = google.visualization.arrayToDataTable([
-                ['State', 'Accent'],
+                ['Estado', 'Porciento'],
                 ['Baja California', 23.3],
                 ['Sonora', '28.2'],
                 ['Chihuahua', '26.3'],
@@ -156,7 +912,11 @@
                 ['Veracruz', 5088.563, 4141.759, 3878.997],
                 ['Chiapas', 4174.596, 3782.315, 3682.298],
                 ['Puebla', 3878.116, 3763.65, 3705.6],
-                ['Oaxaca', 2714.697, 2434.595, 2354.4]
+                ['Oaxaca', 2714.697, 2434.595, 2354.4],
+                ['Ciudad de México', 2682.697, 2540.595, 2454.4],
+                ['Michoacan',2411, 2161.9, 2447.595],
+                ['Jalisco', 2560.697, 2720.8, 2601.4],
+                ['Guanajuato', 2587.697, 2525.595, 2404.4],
             ]);
 
             var options = {
@@ -196,32 +956,97 @@
         }
     </script>
     <script>
-        google.charts.load('current', {packages: ['corechart', 'line']});
-google.charts.setOnLoadCallback(drawLineColors);
+        google.charts.load('current', { packages: ['corechart', 'line'] });
+        google.charts.setOnLoadCallback(drawLineColors);
 
-function drawLineColors() {
-      var data = new google.visualization.DataTable();
-      data.addColumn('string', 'año');
-      data.addColumn('number', 'Pobreza moderada');
-      data.addColumn('number', 'Pobreza extrema');
+        function drawLineColors() {
+            var data = new google.visualization.DataTable();
+            data.addColumn('string', 'año');
+            data.addColumn('number', 'Pobreza moderada');
+            data.addColumn('number', 'Pobreza extrema');
 
-      data.addRows([
-        ['2008', 37161.3, 12328],    ['2010', 39848.3, 12964],   ['2012', 41821, 11529],  ['2014', 43899, 11442],   ['16', 44042, 9375.6], ['18', 43115.3, 9310.2], 
-      ]);
+            data.addRows([
+                ['2008', 37161.3, 12328], ['2010', 39848.3, 12964], ['2012', 41821, 11529], ['2014', 43899, 11442], ['16', 44042, 9375.6], ['18', 43115.3, 9310.2],
+            ]);
 
-      var options = {
-        hAxis: {
-          title: 'Año'
-        },
-        vAxis: {
-          title: 'Población (miles de personas)'
-        },
-        colors: ['#a52714', '#097138']
-      };
+            var options = {
+                hAxis: {
+                    title: 'Año'
+                },
+                vAxis: {
+                    title: 'Población (miles de personas)'
+                },
+                colors: ['#a52714', '#097138']
+            };
 
-      var chart = new google.visualization.LineChart(document.getElementById('chart_evolution'));
-      chart.draw(data, options);
-    }
+            var chart = new google.visualization.LineChart(document.getElementById('chart_evolution'));
+            chart.draw(data, options);
+        }
+    </script>
+    <script>
+        google.charts.load('current', { packages: ['corechart', 'line'] });
+        google.charts.setOnLoadCallback(drawCurveTypes);
+
+        function drawCurveTypes() {
+            var data = new google.visualization.DataTable();
+            data.addColumn('string', 'X');
+            data.addColumn('number', 'Rezago educativo');
+            data.addColumn('number', 'Falta acceso a la salud');
+            data.addColumn('number', 'Falta seguridad social');
+            data.addColumn('number', 'Falta calidad y vivienda');
+            data.addColumn('number', 'Falta acceso serv. básicos'); data.addColumn('number', 'Falta acceso alimentación');
+
+
+
+
+            data.addRows([
+                ['2008', 21.9, 38.4, 65, 17, 22, 21.7], ['2010', 20.7, 29.4, 60, 15, 22.9, 24.8], ['2012', 19.2, 21.4, 61, 13.6, 21.9, 23], ['2014', 18.7, 18.2, 58, 12.3, 21.2, 23.4], ['2016', 17.4, 15.5, 55.8, 12.3, 19.3, 20.1], ['2018', 16.9, 16.2, 57.3, 11.1, 19.8, 20.4]
+            ]);
+
+            var options = {
+                hAxis: {
+                    title: 'Años'
+                },
+                vAxis: {
+                    title: 'Porcentaje de la población'
+                },
+                series: {
+                    1: { curveType: 'function' }
+                }
+            };
+
+            var chart = new google.visualization.LineChart(document.getElementById('chart_change_div'));
+            chart.draw(data, options);
+        }
+    </script>
+
+    <script type="text/javascript">
+        google.charts.load('current', { 'packages': ['corechart'] });
+        google.charts.setOnLoadCallback(drawVisualization);
+
+        function drawVisualization() {
+            // Some raw data (not necessarily accurate)
+            var data = google.visualization.arrayToDataTable([
+                ['Año', 'Ingreso inferior a la línea de pobreza', 'Ingreso inferior a la línea de pobreza extrema'],
+                ['2008', 49.8, 16.8],
+                ['2010', 52.0, 19.4],
+                ['2012', 51.6, 20.0],
+                ['2014', 53.2, 20.6],
+                ['2016', 50.6, 17.5],
+                ['2018', 48.8, 16.8],
+            ]);
+
+            var options = {
+                title: 'Porcentaje de la población con ingresos menores a la línea de la pobreza',
+                vAxis: { title: 'Porcentaje de población' },
+                hAxis: { title: 'Año' },
+                seriesType: 'bars',
+                series: { 5: { type: 'line' } }
+            };
+
+            var chart = new google.visualization.ComboChart(document.getElementById('chart_income_div'));
+            chart.draw(data, options);
+        }
     </script>
 </body>
 
